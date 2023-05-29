@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+
+                "Attacks": {
+                    "format":"tabs",
+                    "type": "array",
+                    "items": {
+                    "$ref": "attackSchema.json"
+                    }
+                },
+                "Facts": {
+                    "format":"tabs",
+                    "type": "array",
+                    "items": {
+                      "title":"Facts",
+                      "type": "string",
+                      "format":"textarea"
+                    }
+                },
+                "Reviews": {
+                    "format":"tabs",
+                    "type": "array",
+                    "items": {
+                        "$ref": "reviewsSchema.json"
+                    }
+                }
+            
+        }
+}

@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+      "Date of next review": {
+        "type": "string", 
+        "format": "date"
+      },
+      "Version": {
+        "type": "string"
+      },
+      "TM-Maturity": {
+        "type": "string", 
+        "enum": ["Settler", "Pioneer"]
+      },
+      "Tier": {
+        "type": "string", 
+        "enum": ["1", "2", "3", "4"]
+      },
+      "Repository":{
+        "type": "string", 
+        "format": "url"
+      }
+    },
+    "required": [ "Date of next review", "Version", "TM-Maturity", "Tier","Repository"]
+}

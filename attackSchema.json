@@ -1,0 +1,29 @@
+{   "title":"Attack",
+    "type": "object",
+    "properties": {
+            "Type": {
+              "type": "string",
+              "enum": ["DDoS (Internal Service)", "MITM", "data_leak", "other"]
+            },
+            "Actors": {
+              "format":"table",
+              "type": "array",
+              "items": {
+                  "$ref": "actorsSchema.json"
+              }
+            },
+            "Controll": {
+              "title":"Controll",
+              "format":"table",
+              "type": "array",
+              "items": {
+                  "$ref": "controlSchema.json"
+              }
+            },
+            "otherInfo": {
+              "type": "string",
+              "format":"textarea"
+            }
+    },
+    "required": ["Type", "Actors", "Controll"]
+  }

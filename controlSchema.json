@@ -1,0 +1,27 @@
+{   
+    "title":"Controll",
+    "type": "object",
+    "properties": {
+          "description": {
+            "type": "string",
+            "format":"textarea"
+          },
+          "workflow": {
+            "type": "string",
+            "enum": ["to_do", "in_progress", "done"]
+          },
+          "acknowledgment": {
+            "type": "string",
+            "enum": ["null", "accepted", "rejected"]
+          },
+          "notes": {
+            "type": "string",
+            "format":"textarea"
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          }
+    },
+    "required": ["description", "workflow", "acknowledgment", "priority"]
+  }

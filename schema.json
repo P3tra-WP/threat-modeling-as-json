@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "title": "Security Json",
+    "properties": {
+            "Scope":{
+                "type":"string",
+                "description":"This is the name of the service"
+            },
+            "Metadata":{
+                "$ref": "metadataSchema.json"
+            },            
+            "Actors/Users":{
+                "format":"tabs",
+                "type": "array",
+                "items": {
+                    "$ref": "actorUsersSchema.json"
+                }
+            },
+            "Output":{
+               "$ref": "outputSchema.json"
+            }
+        },
+    "required": ["Scope", "Metadata","Output"]
+}

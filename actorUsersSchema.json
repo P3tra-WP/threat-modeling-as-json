@@ -1,0 +1,21 @@
+{   
+    "title":"Actor",
+     "type": "object",
+     "properties": {
+           "Name": {
+            "type": "string"
+           },
+           "Role": {
+             "type": "string",
+             "enum": ["Engineers", "DevOps"]
+           },
+           "Permissions": {
+             "type": "string",
+             "enum": ["admin", "readOnly", "other"]
+           }, 
+           "CustomPermissions": {
+            "type": "string"
+           } 
+     },
+    "required": ["Role", "Permissions"]
+ }
