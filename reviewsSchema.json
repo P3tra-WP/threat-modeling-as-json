@@ -1,0 +1,33 @@
+{   "title":"Code Review",
+    "type": "object",
+    "properties": {
+          "Reviewer": {
+            "type": "string"
+          }, 
+          "Date of next review": {
+            "type": "string", 
+            "format": "date"
+          },
+          "Findings": {
+            "format":"table",
+            "type": "array",
+            "items": {
+              "title":"Finding",
+                "type": "object",
+                "properties": {
+                      "Description": {
+                        "type": "string",
+                        "format":"textarea"
+                      },
+                      "Recommandation": {
+                        "type": "string",
+                        "format":"textarea"
+                      }
+                 
+                },
+                "required": ["Description", "Recommandation"]
+            }
+          }
+        },
+        "required": ["Reviewer", "Findings"]
+      }

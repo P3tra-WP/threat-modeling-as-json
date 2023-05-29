@@ -1,0 +1,19 @@
+{
+   "title":"Actor",
+    "type": "object",
+    "properties": {
+          "Skill level": {
+            "type": "string",
+            "enum": ["novice", "intermediate", "expert"]
+          },
+          "Access": {
+            "type": "string",
+            "enum": ["internal", "external"]
+          },
+          "OtherInfo": {
+            "type": "string",
+            "format":"textarea"
+          }
+    },
+    "required": [ "Skill level", "Access"]
+}

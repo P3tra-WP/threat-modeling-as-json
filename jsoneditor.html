@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security JSON Editor</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <script src="jsoneditor.min.js"></script>
+    <script src="drop.js"></script>
+    <script>
+        // Set the default CSS theme and icon library globally
+        JSONEditor.defaults.theme = 'spectre';
+        JSONEditor.defaults.iconlib = 'spectre';
+    </script>
+    <style>
+        .container {
+          max-width:1200px;
+          margin: 0 auto
+        }
+
+        #drop_zone {
+          border: 4px solid blue;
+          width: 300px;
+          height: 50px;
+        }
+    </style>
+    <style id="theme-default"></style>
+    <style id="theme-spectre"></style>
+</head>
+<body>
+
+
+    <div class="container">
+    
+        <div class="columns">
+            <h1 class="col-md-12">Security JSON Editor</h1>
+                        
+           
+        </div>
+
+        <div class="columns">
+          <div class="column col-md-12">
+            <p>Security JSON Editor allows you to quickly edit your threath json files</p>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="col-md-12"
+           id="drop_zone"
+          ondrop="dropHandler(event);"
+          ondragover="dragOverHandler(event);">
+          <p>Drag one or more files to this drop zone.</p>
+          </div>
+
+      </div>
+
+        <div class="columns">
+            <div class="column col-md-12">
+              <span id="valid_indicator" class="label success">valid</span>  
+            </div>
+          </div>
+
+        <div class="columns">
+            <div class="column col-md-12 je-ready" id="editor_holder" data-theme="spectre" class="je-ready"></div>
+        </div>
+        
+        <button onclick="export2txt()">Donwload json file </button>
+    </div>
+
+    <script>
+        
+        const element = document.getElementById('editor_holder');
+        
+        // https://github.com/json-editor/json-editor
+        const options=
+        {
+             // Enable fetching schemas via ajax
+            ajax: true,
+            disable_properties: true,
+            disable_edit_json: true,
+            keep_oneof_values:false,
+            schema:{
+               $ref: "schema.json"
+            },
+            object_layout: 'grid'
+        };
+
+        const editor = new JSONEditor(element, options);
+
+        editor.on('ready',() => {
+            editor.validate();
+        });
+        
+         // Hook up the validation indicator to update its 
+        // status whenever the editor changes
+        editor.on('change',function() {
+        // Get an array of errors from the validator
+        var errors = editor.validate();
+        
+        var indicator = document.getElementById('valid_indicator');
+        
+        // Not valid
+        if(errors.length) {
+          indicator.className = 'label alert';
+          indicator.textContent = 'not valid';
+        }
+        // Valid
+        else {
+          indicator.className = 'label success';
+          indicator.textContent = 'valid';
+        }
+      });
+      
+      function export2txt() {
+      
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([JSON.stringify(editor.getValue(), null, 2)], {
+        type: "text/plain"
+      }));
+      a.setAttribute("download", "threat_model.json");
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+{
+  "Scope": "AAA",
+  "Metadata": {
+    "Date of next review": "",
+    "Version": "bfdbfdbfd",
+    "TM-Maturity": "Pioneer",
+    "Tier": "4",
+    "Repository": ""
+  },
+  "Output": {
+    "Attacks": [
+      {
+        "Type": "data_leak",
+        "Actors": [
+          {
+            "Skill level": "novice",
+            "Access": "internal",
+            "OtherInfo": "bvfdbfdbgfdbfd"
+          },
+          {
+            "Skill level": "expert",
+            "Access": "internal",
+            "OtherInfo": "bfdbdbdb"
+          }
+        ],
+        "Controll": [],
+        "otherInfo": "gregergged"
+      },
+      {
+        "Type": "DDoS (Internal Service)",
+        "Actors": [],
+        "Controll": [],
+        "otherInfo": ""
+      },
+      {
+        "Type": "DDoS (Internal Service)",
+        "Actors": [],
+        "Controll": [],
+        "otherInfo": ""
+      }
+    ],
+    "Facts": [
+      "cdsacdssacds",
+      "cdscdscs"
+    ],
+    "Reviews": [
+      {
+        "Reviewer": "cdscdscds",
+        "Date of next review": "2023-05-11",
+        "Findings": [
+          {
+            "Description": "cdscdscds",
+            "Recommandation": "cdscdscds"
+          }
+        ]
+      },
+      {
+        "Reviewer": "cdscdss",
+        "Date of next review": "2023-05-19",
+        "Findings": [
+          {
+            "Description": "cdscdscds",
+            "Recommandation": "cdscdsd"
+          }
+        ]
+      }
+    ]
+  },
+  "Actors/Users": []
+}
